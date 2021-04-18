@@ -19,6 +19,8 @@ int main() {
 
     asio::ip::tcp::endpoint endpoint(asio::ip::make_address("127.0.0.1", ec), 80);
 
+    asio::ip::tcp::socket socket(context);
+
     return 0;
 
 }
