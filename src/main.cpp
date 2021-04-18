@@ -21,6 +21,12 @@ int main() {
 
     asio::ip::tcp::socket socket(context);
 
+    socket.connect(endpoint, ec);
+
+    if(!ec) {
+        
+    }
+
     return 0;
 
 }
