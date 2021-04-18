@@ -11,7 +11,7 @@
 
 #define ASIO_STANDALONE
 
-using namespace std;
+using namespace std; //using std namespace 
 
 int main() {
     
@@ -19,7 +19,7 @@ int main() {
 
     asio::io_context context;
 
-    asio::ip::tcp::endpoint endpoint(asio::ip::make_address("127.0.0.1", ec), 80);
+    asio::ip::tcp::endpoint endpoint(asio::ip::make_address("127.0.0.1", ec), 80); //IP주소 및 포트 선언
 
     asio::ip::tcp::socket socket(context);
 
@@ -27,12 +27,12 @@ int main() {
 
     if(!ec) {
     
-        cout << "Connected!" << endl;
+        cout << "Connected!" << endl; //IP연결
     
     }
     else {
 
-        cout << "주소에 연결하는데 실패하였습니다. : \n" << ec.message() << endl;
+        cout << "주소에 연결하는데 실패하였습니다. : \n" << ec.message() << endl; //예외 상황 처리
     
     }
 
