@@ -43,6 +43,23 @@ int main() {
         "Host: Phantester.com\r\n" 
         "Connection: close\r\n\r\n";
 
+    socket.write_some(asio::buffer(sRequest.data(), sRequest.size()), ec);
+
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(200ms);
+
+    size_t bytes = socket.available();
+    std::cout << "Bytes Available : " << bytes << std::endl;
+
+    if (bytes > 0) {
+        stdd::vector<char> vBuffer(bytes);
+        socket.read_some(asio::buffer(vBuffer.data(), vBuffer.size()), ec);
+
+        for(auto c : vBuffer) {
+            std::cout << c << endl;
+        }
+    }
+
     }
 
     system("pause");
