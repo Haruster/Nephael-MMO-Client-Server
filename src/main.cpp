@@ -12,7 +12,13 @@
 #define ASIO_STANDALONE
 
 int main() {
- 
+    
+    asio::error_code ec;
+
+    asio::io_context context;
+
+    asio::ip::tcp::endpoint endpoint(asio::ip::make_address("127.0.0.1", ec), 80);
+
     return 0;
 
 }
