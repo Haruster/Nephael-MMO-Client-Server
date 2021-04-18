@@ -11,6 +11,8 @@
 
 #define ASIO_STANDALONE
 
+using namespace std;
+
 int main() {
     
     asio::error_code ec;
@@ -24,7 +26,14 @@ int main() {
     socket.connect(endpoint, ec);
 
     if(!ec) {
-        
+    
+        cout << "Connected!" << endl;
+    
+    }
+    else {
+
+        cout << "주소에 연결하는데 실패하였습니다. : \n" << ec.message() << endl;
+    
     }
 
     return 0;
