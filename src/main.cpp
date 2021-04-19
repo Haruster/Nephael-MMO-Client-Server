@@ -1,3 +1,4 @@
+//MMO Client Server
 #include <iostream>
 #include <asio.hpp>
 #include <asio/ts/buffer.hpp>
@@ -45,8 +46,7 @@ int main() {
 
     socket.write_some(asio::buffer(sRequest.data(), sRequest.size()), ec);
 
-    using namespace std::chrono_literals;
-    std::this_thread::sleep_for(200ms);
+    socket.wait(socket.wait_read);
 
     size_t bytes = socket.available();
     std::cout << "Bytes Available : " << bytes << std::endl;
